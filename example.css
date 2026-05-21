@@ -1,24 +1,24 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     display: flex;
 
     min-height: 100vh;
 
     background: #fce9ab;
 
-    font-family: "Poppins", sans-serif;
+    font-family: "Pixelify Sans", sans-serif;
 
     overflow-x: hidden;
 }
 
 /* barraIzq */
 
-.barraIzq{
+.barraIzq {
     position: fixed;
 
     top: 0;
@@ -40,12 +40,12 @@ body{
     gap: 50px;
 
     box-shadow:
-    5px 0 25px #0a5b10;
+        5px 0 25px #0a5b10;
 }
 
 /* LOGO */
 
-.logo{
+.logo {
     display: flex;
 
     align-items: center;
@@ -53,7 +53,7 @@ body{
     gap: 1px;
 }
 
-.logo span{
+.logo span {
     width: 35px;
     height: 35px;
 
@@ -62,17 +62,18 @@ body{
     border-radius: 10px;
 }
 
-.logo h2{
+.logo h2 {
     font-size: 1.3rem;
+    color: #0f5b13;
 }
 
-.logo p{
-    color: #d4d4d4;
+.logo p {
+    color: #0f5b13;
 }
 
 /* MENU */
 
-.menu{
+.menu {
     display: flex;
 
     flex-direction: column;
@@ -80,12 +81,12 @@ body{
     gap: 15px;
 }
 
-.menu a{
+.menu a {
     text-decoration: none;
 
     font-size: 100%;
 
-    color: #fce9ab;
+    color: #0d5b10;
 
     display: flex;
 
@@ -100,19 +101,20 @@ body{
     transition: .3s;
 }
 
-.menu a:hover{
-    
-    background-image: url(/img/boton.png);
+.menu a:hover {
+
+    background: #0f5b13;
+    color: #ffffff;
 }
 
-.menu .active{
-    background:#fce9ab;
-    color: #000000;
+.menu .active {
+    background: #fce9ab;
+    color: #0f5b13;
 }
 
 /* ICONOS */
 
-.loguito{
+.loguito {
     width: 20%;
     height: 60%;
 
@@ -125,7 +127,8 @@ body{
 
 /* CONTENIDO */
 
-.contenido{
+.contenido {
+    
     margin-left: 260px;
 
     width: calc(100% - 260px);
@@ -137,7 +140,7 @@ body{
 
 /* barraSuperior */
 
-.barraSuperior{
+.barraSuperior {
     height: 90px;
 
     background-image: url('/img/uy.png');
@@ -150,19 +153,22 @@ body{
 
     padding: 0 40px;
 
-    color: #c42b34;
+    color: #ddaaad;
 
     position: sticky;
 
     top: 0;
 
     z-index: 100;
+
+    border-color: #2a7bc7;
+
 }
 
 /* clima */
 
-.clima{
-    color:#ffffff;
+.clima {
+    color: #ffffff;
 
     display: flex;
 
@@ -178,42 +184,42 @@ body{
     backdrop-filter: blur(10px);
 }
 
-.clima-box{
+.clima-box {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-#iconoClima{
+#iconoClima {
     width: 50%;
     height: 45px;
     object-fit: contain;
 }
 
 /* admin */
-.bus-contenedor{
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+.bus-contenedor {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
-.bus{
-  width: 90%;
-  position: relative;
-  animation: moverBus 10s linear infinite alternate;
+.bus {
+    width: 90%;
+    position: relative;
+    animation: moverBus 10s linear infinite alternate;
 }
 
-@keyframes moverBus{
-  from{
-    transform: translateX(0);
-  }
+@keyframes moverBus {
+    from {
+        transform: translateX(0);
+    }
 
-  to{
-    transform: translateX(1200px);
-  }
+    to {
+        transform: translateX(500px);
+    }
 }
 
-.logo{
+.logo {
     display: flex;
 
     align-items: center;
@@ -226,7 +232,7 @@ body{
 
 }
 
-.logo img{
+.logo img {
     z-index: 100;
     width: 70%;
     height: 40%;
@@ -234,18 +240,26 @@ body{
 
 /* principal */
 
-.principal{
+.principal {
     padding: 40px;
 }
 
 /* central */
 
-.central{
+.central {
+    border-color: #2a7bc7;
+
+    border-width: 2px;
+
+    border-style: solid;
+    
+    margin-top: 1%;
+
     height: 500px;
 
     border-radius: 35px;
 
-    background:#4ab3d0;
+    background: #4ab3d0;
 
     padding: 60px;
 
@@ -260,29 +274,29 @@ body{
 
 /* centralTitulo */
 
-.centralTitulo{
+.centralTitulo {
     max-width: 500px;
 
     z-index: 2;
 }
 
-.centralTitulo span{
-    color: #fce9ab;
+.centralTitulo span {
+    color: #fafafa;
 
     font-weight: 600;
 
     letter-spacing: 2px;
 }
 
-.centralTitulo h1{
-    font-size: 4rem;
+.centralTitulo h1 {
+    font-size: 4%;
 
     color: #fce9ab;
 
     margin-top: 10px;
 }
 
-.centralTitulo p{
+.centralTitulo p {
     margin-top: 20px;
 
     line-height: 1.8;
@@ -290,9 +304,26 @@ body{
     color: #444;
 }
 
+.busImg img{
+
+    width: 160%;
+    height: 90%;
+    object-fit: contain;
+    border-radius: 20px;
+
+}
+
+.busImg{
+    margin-left: 20%;
+    object-fit: contain;
+    justify-content: center;
+    padding: 0%;
+    background-color: transparent;
+
+}
 /* BUTTON */
 
-.centralTitulo button{
+.centralTitulo button {
     margin-top: 30px;
 
     border: none;
@@ -301,7 +332,7 @@ body{
 
     border-radius: 15px;
 
-    background: #808000;
+    background: #fdda34;
 
     color: white;
 
@@ -318,13 +349,13 @@ body{
     gap: 10px;
 }
 
-.centralTitulo button:hover{
+.centralTitulo button:hover {
     transform: translateY(-3px);
 }
 
 /* MENU HAMBURGUESA */
 
-.menuHamburguesa{
+.menuHamburguesa {
     display: none;
 
     background: transparent;
@@ -340,40 +371,112 @@ body{
 
 
 
-    .menuHamburguesa{
-        display: block;
+.menuHamburguesa {
+    display: block;
+}
+
+.barraIzq {
+    transform: translateX(-100%);
+
+    transition: .4s;
+
+    z-index: 200;
+}
+
+.barraIzq.activo {
+    transform: translateX(0);
+}
+
+.contenido {
+    margin-left: 0;
+
+    width: 100%;
+}
+
+.barraSuperior {
+    padding: 0 20px;
+}
+
+.central {
+    padding: 30px;
+}
+
+.centralTitulo h1 {
+    font-size: 2.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .busImg{
+    display: none;
+}
+}
+
+/* 📱 Móviles pequeños (hasta 480px) */
+@media screen and (max-width: 480px) {
+    .barraIzq {
+        width: 200px;
+        padding: 20px;
     }
 
-    .barraIzq{
+    .centralTitulo h1 {
+        font-size: 1.5rem;
+    }
+
+    .central {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .busImg {
+        display: none;
+    }
+}
+
+/* 📲 Tablets (481px a 768px) */
+@media screen and (max-width: 768px) {
+    .barraIzq {
         transform: translateX(-100%);
-
         transition: .4s;
-
-        z-index: 200;
     }
 
-    .barraIzq.activo{
+    .barraIzq.activo {
         transform: translateX(0);
     }
 
-    .contenido{
+    .contenido {
         margin-left: 0;
-
         width: 100%;
     }
 
-    .barraSuperior{
-        padding: 0 20px;
+    .centralTitulo h1 {
+        font-size: 2rem;
     }
 
-    .central{
-        padding: 30px;
+    .busImg img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* 💻 Pantallas grandes (más de 1200px) */
+@media screen and (min-width: 1200px) {
+    .central {
+        padding: 80px;
+        height: 600px;
     }
 
-    .centralTitulo h1{
-        font-size: 2.5rem;
+    .centralTitulo h1 {
+        font-size: 3rem;
     }
 
-@media screen and (max-width: 768px) {
-    
+    .busImg img {
+        width: 120%;
+        height: auto;
+    }
+
+    .menu a {
+        font-size: 1.1rem;
+        padding: 20px;
+    }
 }
