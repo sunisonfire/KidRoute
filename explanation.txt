@@ -1,0 +1,43 @@
+La empresa Rutas Seguras Kids necesita un sistema frontend que permita organizar sus rutas escolares y asignar estudiantes a cada bus. El sistema debe ser implementado exclusivamente con HTML, CSS y JavaScript puro (Vanilla JS), sin frameworks ni librerías externas.
+
+
+
+El objetivo es demostrar dominio de:
+
+Manipulación dinámica del DOM.
+Uso de eventos y asincronía.
+Creación de componentes reutilizables con Web Components.
+Buenas prácticas de organización de proyecto (HTML, CSS y JS separados).
+Consumo de API pública.
+
+
+Requerimientos del Proyecto:
+Gestión de rutas y estudiantes
+Crear rutas dinámicamente (nombre de la ruta, conductor, hora de salida).
+Asignar estudiantes a una ruta.
+Mostrar en pantalla una lista de rutas con sus estudiantes.
+Interactividad con el DOM
+Los usuarios deben poder agregar, editar y eliminar rutas/estudiantes directamente desde la interfaz.
+Los cambios deben reflejarse dinámicamente en la vista.
+Eventos personalizados y formularios:
+Validar formularios al agregar datos.
+Implementar al menos un evento personalizado con CustomEvent.
+Asincronía y consumo de API pública
+Integrar la API de OpenWeather (u otra pública) para mostrar el clima en la ciudad donde opera la ruta.
+Usar fetch y async/await.
+Web Components y Templates
+Crear un Web Component (<route-card>) para representar las tarjetas de rutas.
+Usar <template> y Shadow DOM.
+Responsividad y presentación
+Proyecto responsive con al menos 3 breakpoints (@media).
+Diseño coherente y con buena experiencia de usuario.
+Resultado esperado
+
+Entregables:
+Carpeta con estructura organizada.
+Código fuente en HTML, CSS y JS.
+Documento README.md con:
+Descripción del proyecto.
+Instrucciones de ejecución.
+Capturas de pantalla.
+Repositorio en GitHub con commits.

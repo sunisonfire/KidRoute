@@ -1,0 +1,375 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+
+    min-height: 100vh;
+
+    background: #fce9ab;
+
+    font-family: "Poppins", sans-serif;
+
+    overflow-x: hidden;
+}
+
+/* barraIzq */
+
+.barraIzq{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 260px;
+
+    height: 100vh;
+
+    background: #ffb578;
+
+    padding: 30px;
+
+    color: #fce9ab;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 50px;
+
+    box-shadow:
+    5px 0 25px rgba(0,0,0,.15);
+}
+
+/* LOGO */
+
+.logo{
+    display: flex;
+
+    align-items: center;
+
+    gap: 1px;
+}
+
+.logo span{
+    width: 35px;
+    height: 35px;
+
+    background: #fce9ab;
+
+    border-radius: 10px;
+}
+
+.logo h2{
+    font-size: 1.3rem;
+}
+
+.logo p{
+    color: #d4d4d4;
+}
+
+/* MENU */
+
+.menu{
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.menu a{
+    text-decoration: none;
+
+    color: #fce9ab;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    transition: .3s;
+}
+
+.menu a:hover{
+    background:
+    rgba(255,255,255,.1);
+}
+
+.menu .active{
+    background:#fce9ab;
+    color: #ffb578;
+}
+
+/* ICONOS */
+
+.loguito{
+    width: 20px;
+    height: 20px;
+
+    background: #fce9ab;
+
+    border-radius: 5px;
+
+    display: inline-block;
+}
+
+/* CONTENIDO */
+
+.contenido{
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+/* barraSuperior */
+
+.barraSuperior{
+    height: 90px;
+
+    background-image: url('/img/uy.png');
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    color: #c42b34;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+/* clima */
+
+.clima{
+    color:#dc4e7c;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #c42b34;
+
+    padding: 12px 25px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+}
+
+.clima-box{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#iconoClima{
+    width: 50%;
+    height: 45px;
+    object-fit: contain;
+}
+
+/* admin */
+.bus-contenedor{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.bus{
+  width: 90%;
+  position: relative;
+  animation: moverBus 10s linear infinite alternate;
+}
+
+@keyframes moverBus{
+  from{
+    transform: translateX(0);
+  }
+
+  to{
+    transform: translateX(1200px);
+  }
+}
+
+.logo{
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-left: -30%;
+
+    background: transparent;
+
+}
+
+.logo img{
+    z-index: 100;
+    width: 70%;
+    height: 40%;
+}
+
+/* principal */
+
+.principal{
+    padding: 40px;
+}
+
+/* central */
+
+.central{
+    height: 500px;
+
+    border-radius: 35px;
+
+    background:#ffb578;
+
+    padding: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* centralTitulo */
+
+.centralTitulo{
+    max-width: 500px;
+
+    z-index: 2;
+}
+
+.centralTitulo span{
+    color: #fce9ab;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.centralTitulo h1{
+    font-size: 4rem;
+
+    color: #fce9ab;
+
+    margin-top: 10px;
+}
+
+.centralTitulo p{
+    margin-top: 20px;
+
+    line-height: 1.8;
+
+    color: #444;
+}
+
+/* BUTTON */
+
+.centralTitulo button{
+    margin-top: 30px;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 15px;
+
+    background: #808000;
+
+    color: white;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.centralTitulo button:hover{
+    transform: translateY(-3px);
+}
+
+/* MENU HAMBURGUESA */
+
+.menuHamburguesa{
+    display: none;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+
+
+    .menuHamburguesa{
+        display: block;
+    }
+
+    .barraIzq{
+        transform: translateX(-100%);
+
+        transition: .4s;
+
+        z-index: 200;
+    }
+
+    .barraIzq.activo{
+        transform: translateX(0);
+    }
+
+    .contenido{
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+    .barraSuperior{
+        padding: 0 20px;
+    }
+
+    .central{
+        padding: 30px;
+    }
+
+    .centralTitulo h1{
+        font-size: 2.5rem;
+    }
+
