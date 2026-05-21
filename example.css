@@ -160,7 +160,7 @@ body{
 /* clima */
 
 .clima{
-    color:#dc4e7c;
+    color:#ffffff;
 
     display: flex;
 
@@ -168,7 +168,6 @@ body{
 
     gap: 15px;
 
-    background: #c42b34;
 
     padding: 12px 25px;
 
@@ -373,3 +372,6 @@ body{
         font-size: 2.5rem;
     }
 
+@media screen and (max-width: 768px) {
+    
+}
