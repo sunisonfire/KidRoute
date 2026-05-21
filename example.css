@@ -28,11 +28,11 @@ body{
 
     height: 100vh;
 
-    background: #ffb578;
+    background: #98cf70;
 
     padding: 30px;
 
-    color: #fce9ab;
+    color: #d1e3c7;
 
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@ body{
     gap: 50px;
 
     box-shadow:
-    5px 0 25px rgba(0,0,0,.15);
+    5px 0 25px #0a5b10;
 }
 
 /* LOGO */
@@ -57,7 +57,7 @@ body{
     width: 35px;
     height: 35px;
 
-    background: #fce9ab;
+    background: #ffffff;
 
     border-radius: 10px;
 }
@@ -83,6 +83,8 @@ body{
 .menu a{
     text-decoration: none;
 
+    font-size: 100%;
+
     color: #fce9ab;
 
     display: flex;
@@ -99,22 +101,22 @@ body{
 }
 
 .menu a:hover{
-    background:
-    rgba(255,255,255,.1);
+    
+    background-image: url(/img/boton.png);
 }
 
 .menu .active{
     background:#fce9ab;
-    color: #ffb578;
+    color: #000000;
 }
 
 /* ICONOS */
 
 .loguito{
-    width: 20px;
-    height: 20px;
+    width: 20%;
+    height: 60%;
 
-    background: #fce9ab;
+    background: transparent;
 
     border-radius: 5px;
 
@@ -243,7 +245,7 @@ body{
 
     border-radius: 35px;
 
-    background:#ffb578;
+    background:#4ab3d0;
 
     padding: 60px;
 
