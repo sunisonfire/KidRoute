@@ -84,8 +84,33 @@ h2{
   max-width: 600px;           /* límite opcional */
 }
 
-/* Responsive: en móviles se apilan *
+/* lo del modal */
+    .modal {
+    display: none; /* oculto por defecto */
+    position: fixed; /* se fija en toda la pantalla */
+    inset: 0; /* top:0 right:0 bottom:0 left:0 (ocupa todo) */
+    background: rgba(0, 0, 0, 0.6);
 
+    justify-content: center;
+    align-items: center;
+}
+
+/* apertura del modal */
+.modal.show {
+    display: flex; /* activa flexbox para centrar contenido */
+}
+
+/* caja */
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    animation: fadeIn 0.2s ease-in-out;
+}
+/* fin del modal */
 
 /* RESPONSIVE */
 @media (max-width:768px) {

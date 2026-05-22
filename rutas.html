@@ -52,6 +52,27 @@
   <div id="contenedorRutas" class="contenedor-rutas"></div>
 </section>
 
+  <!--EL MODAL ESE  -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h2>Editar Ruta</h2>
+    <form id="formRuta">
+      <input type="text" id="nombre">
+      <input type="text" id="conductor">
+      <input type="time" id="hora">
+      <button type="submit">Guardar cambios</button>
+    </form>
+
+    <h3>Estudiantes</h3>
+    <div id="listaEstudiantesModal"></div>
+    <input type="text" id="nuevoEstudiante" placeholder="Nuevo estudiante">
+    <button id="btnAgregarEst">Agregar estudiante</button>
+
+    <button id="btnCerrar">Cerrar</button>
+  </div>
+</div>
+
+
   <script src="rutas.js"></script>
 </body>
 </html>

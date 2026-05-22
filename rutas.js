@@ -5,7 +5,19 @@ const FormularioEstudiante = document.getElementById("FormularioEstudiante");
 const seleccionarRuta = document.getElementById("seleccionarRuta");
 const contenedorRutas = document.getElementById("contenedorRutas");
 
+// 🔧 Variables del modal
+const modal = document.getElementById("modal");
+const formRuta = document.getElementById("formRuta");
+const nombre = document.getElementById("nombre");
+const conductor = document.getElementById("conductor");
+const hora = document.getElementById("hora");
+const listaEstudiantesModal = document.getElementById("listaEstudiantesModal");
+const nuevoEstudiante = document.getElementById("nuevoEstudiante");
+const btnAgregarEst = document.getElementById("btnAgregarEst");
+const btnCerrar = document.getElementById("btnCerrar");
+
 let rutas = [];
+let editId = null;
 
 // Web Component
 const template = document.createElement("template");
@@ -133,40 +145,30 @@ border-top: 2px solid #0a1e12;
 }
   </style>
   <section>
-<div class="card">
-  <!-- Franja superior -->
-  <div class="top-bar">
-    <h3 class="nombre">Ruta Escolar</h3>
-  </div>
-
-  <!-- Contenido principal -->
-  <div class="contenido">
-    <!-- Columna izquierda -->
-    <div class="izquierda">
-      <img src="img/imgConducir.jpg" alt="verde">
-    </div>
-
-    <!-- Columna derecha -->
-    <div class="derecha">
-      <p class="info conductor"></p>
-      <p class="info hora"></p>
-
-      <div class="estudiantes">
-        <h4>Estudiantes</h4>
-        <div class="lista-estudiantes"></div>
+    <div class="card">
+      <div class="top-bar">
+        <h3 class="nombre">Ruta Escolar</h3>
+      </div>
+      <div class="contenido">
+        <div class="izquierda">
+          <img src="img/imgConducir.jpg" alt="verde">
+        </div>
+        <div class="derecha">
+          <p class="info conductor"></p>
+          <p class="info hora"></p>
+          <div class="estudiantes">
+            <h4>Estudiantes</h4>
+            <div class="lista-estudiantes"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <button class="editar">Editar</button>
+        <button class="eliminar">Eliminar</button>
       </div>
     </div>
-  </div>
-
-  <!-- Franja inferior -->
-  <div class="bottom-bar">
-    <button class="editar">Editar</button>
-    <button class="eliminar">Eliminar</button>
-  </div>
-</div>
-</section>
+  </section>
 `;
-
 
 class RouteCard extends HTMLElement {
   constructor() {
@@ -174,9 +176,7 @@ class RouteCard extends HTMLElement {
     this.attachShadow({mode:"open"});
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
-  connectedCallback() {
-    this.render();
-  }
+  connectedCallback() { this.render(); }
   render() {
     const nombre = this.getAttribute("nombre");
     const conductor = this.getAttribute("conductor");
@@ -196,7 +196,6 @@ class RouteCard extends HTMLElement {
       lista.appendChild(div);
     });
 
-    // Eventos
     this.shadowRoot.querySelector(".eliminar").addEventListener("click", ()=>{
       this.dispatchEvent(new CustomEvent("route:delete",{detail:{nombre},bubbles:true}));
     });
@@ -253,14 +252,12 @@ contenedorRutas.addEventListener("route:delete", e=>{
   actualizarSelect();
   renderRutas();
 });
-contenedorRutas.addEventListener("route:edit", e=>{
-  alert("Editar ruta: "+e.detail.nombre);
-});
 
 // Agregar ruta
 FormularioRuta.addEventListener("submit", e=>{
   e.preventDefault();
   const ruta = {
+    id: Date.now(), // 🔥 id único
     nombre: FormularioRuta.nombreRuta.value,
     conductor: FormularioRuta.conductor.value,
     hora: FormularioRuta.horaSalida.value,
@@ -289,3 +286,58 @@ FormularioEstudiante.addEventListener("submit", e=>{
 
 // Llamar al inicio
 cargarRutas();
+
+//EL MODAL
+
+contenedorRutas.addEventListener("route:edit", e=>{
+  const ruta = rutas.find(r=>r.nombre === e.detail.nombre);
+  editId = ruta.id;
+  modal.classList.add("show");
+
+  nombre.value = ruta.nombre;
+  conductor.value = ruta.conductor;
+  hora.value = ruta.hora;
+
+  listaEstudiantesModal.innerHTML = "";
+  ruta.estudiantes.forEach((est,i)=>{
+    const div = document.createElement("div");
+    div.textContent = est;
+    const btnDel = document.createElement("button");
+    btnDel.textContent = "❌";
+    btnDel.addEventListener("click", ()=>{
+      ruta.estudiantes.splice(i,1);
+      guardarRutas();
+      renderRutas();
+      div.remove();
+    });
+    div.appendChild(btnDel);
+    listaEstudiantesModal.appendChild(div);
+  });
+});
+
+btnAgregarEst.addEventListener("click", ()=>{
+  const ruta = rutas.find(r=>r.id === editId);
+  if(nuevoEstudiante.value && ruta){
+    ruta.estudiantes.push(nuevoEstudiante.value);
+    guardarRutas();
+    renderRutas();
+    nuevoEstudiante.value = "";
+  }
+});
+
+formRuta.addEventListener("submit", e=>{
+  e.preventDefault();
+  const ruta = rutas.find(r=>r.id === editId);
+  if(ruta){
+    ruta.nombre = nombre.value;
+    ruta.conductor = conductor.value;
+    ruta.hora = hora.value;
+    guardarRutas();
+    renderRutas();
+    modal.classList.remove("show");
+  }
+});
+
+btnCerrar.addEventListener("click", ()=>{
+  modal.classList.remove("show");
+});
