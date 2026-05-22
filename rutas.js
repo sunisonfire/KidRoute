@@ -12,13 +12,14 @@ const template = document.createElement("template");
 template.innerHTML = `
   <style>
 .card {
-  width: 600px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  overflow: hidden;
+  width: 100%;          /* antes era fijo en 600px */
+  max-width: 600px;     /* límite en pantallas grandes */
   margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   font-family: "Pixelify Sans", sans-serif;
 }
+
 
 /* Franja superior */
 .top-bar {
@@ -104,7 +105,32 @@ border-top: 2px solid #0a1e12;
 .editar { background: #0a1e12; }
 .eliminar { background: #0a1e12; }
 .bottom-bar button:hover { background: #e8fa74;color:#0a1e12; }
+@media (max-width:768px) {
+  .contenido {
+    flex-direction: column;   /* imagen arriba, info abajo */
+    align-items: center;
+  }
+  .izquierda img {
+    max-width: 100%;          /* imagen ocupa todo el ancho */
+  }
+  .derecha {
+    padding-left: 0;
+    width: 100%;
+  }
+}
 
+@media (max-width:480px) {
+  .top-bar { font-size: 16px; }
+  .info { font-size: 12px; }
+  .estudiante { font-size: 12px; padding: 6px 10px; }
+  .bottom-bar {
+    flex-direction: column;   /* botones apilados */
+    gap: 10px;
+  }
+  .bottom-bar button {
+    width: 100%;
+  }
+}
   </style>
   <section>
 <div class="card">

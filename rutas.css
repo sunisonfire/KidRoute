@@ -4,24 +4,57 @@ body {
   background:#121314;
   padding:20px;
 }
-header { text-align:center;color:aliceblue;
+header { text-align:center;color:#f2678e;
   padding:20px; border-radius:10px; margin-bottom:20px;
+}
+
+header p{
+  color:#fda8ab;
 }
 .panel {
   background:transparent; padding:20px; margin-bottom:20px;
-  border-radius:10px; box-shadow:#ffff 1px 1px 1px 1px}
+  border-radius:10px;}
+
+.panel h2 {
+  color:#e33260; margin-bottom:15px; justify-content:center; display:flex;
+}
+.gato{
+  width:40%; height:auto; position: relative; display:block; margin:-100px 10px;
+}
+.contenedor {
+  position: relative;
+  width: 200px;
+}
+
+.img1, .img2 {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  transition: opacity 0.4s ease;
+}
+
+.img2 { opacity: 0; } /* oculta la segunda imagen */
+
+.contenedor:hover .img2 { opacity: 1; } /* aparece al pasar el mouse */
+.contenedor:hover .img1 { opacity: 0; } /* desaparece la primera */
+
 input, select, button {
   display:block; width:100%; margin:10px 0; padding:10px;
 }
 button {
-  background:brown; color:white; border:none; border-radius:5px;
+  background:#e33260; color:white; border:none; border-radius:5px;
 }
-button:hover { background:darkred; }
+button:hover { background:#fda8ab;color:#e33260; border:#e33260 2px solid; }
 
 h2{
   font-family: "Pixelify Sans", sans-serif;
 
 }
+
+#rutitas h2{
+  color: #85c972;
+}
+
 .contenedor-formularios {
   display: flex;              /* coloca los formularios en fila */
   justify-content: space-between;
@@ -34,11 +67,25 @@ h2{
 .contenedor-formularios .panel {
   flex: 1;                    /* cada panel ocupa la mitad */
   min-width: 0;               /* evita desbordes */
-  background: #fff;
-  border: 1px solid #ccc;
+  background: #fda8ab;
+  border: 1px solid #e33260;
   border-radius: 8px;
   padding: 20px;
 }
+.contenedor-rutas {
+  display: flex;
+  flex-wrap: wrap;        /* permite que bajen si no caben */
+  gap: 20px;              /* espacio entre tarjetas */
+  justify-content: center;/* centradas en el panel */
+}
+
+.contenedor-rutas route-card {
+  flex: 1 1 calc(50% - 20px); /* cada tarjeta ocupa la mitad */
+  max-width: 600px;           /* límite opcional */
+}
+
+/* Responsive: en móviles se apilan *
+
 
 /* RESPONSIVE */
 @media (max-width:768px) {
@@ -46,6 +93,10 @@ h2{
   .panel { padding:15px; }
   .contenedor-formularios {
     flex-direction: column;   /* se apilan */
+  }
+    .contenedor-rutas route-card {
+    flex: 1 1 100%;
+    max-width: none;
   }
   .contenedor-formularios .panel {
     width: 100%;             /* cada panel ocupa todo el ancho */
