@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutas Seguras Kids</title>
+  <meta charset="UTF-8">
+  <title>Gestión de Rutas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="rutas.css">
 </head>
-
 <body>
-    <h1>Rutas Seguras Kids</h1>
-    <p>School Route Management System</p>
+  <header>
+    <div>
+    <h1>Administrador de Rutas</h1>
+    <p>Gestión dinámica de rutas y estudiantes</p>
+    </div>
+  </header>
 
-    <section>
-        FORMULARIO PARA CREAR RUTA
-    </section>
+  <div class="contenedor-formularios">
+  <!-- FORMULARIO RUTA -->
+  <section class="panel" id="formularioRuta">
+    <h2>Registrar nueva ruta</h2>
+    <form id="FormularioRuta">
+      <input type="text" id="nombreRuta" placeholder="Nombre de la ruta" required>
+      <input type="text" id="conductor" placeholder="Conductor" required>
+      <input type="time" id="horaSalida" required>
+      <input type="text" id="ciudad" placeholder="Ciudad" required>
+      <button type="submit">Agregar Ruta</button>
+    </form>
+  </section>
 
-    <section>
-        LISTA DE RUTAS
-    </section>
+  <!-- FORMULARIO ESTUDIANTE -->
+  <section class="panel" id="formularioEstudiante">
+    <h2>Asignar estudiante</h2>
+    <form id="FormularioEstudiante">
+      <input type="text" id="nombreEstudiante" placeholder="Nombre estudiante" required>
+      <select id="seleccionarRuta"></select>
+      <button type="submit">Asignar</button>
+    </form>
+  </section>
+</div>
+
+
+  <!-- LISTA DE RUTAS -->
+  <section class="panel">
+    <h2>Lista de rutas</h2>
+    <div id="contenedorRutas"></div>
+  </section>
+
+  <script src="rutas.js"></script>
 </body>
-
 </html>

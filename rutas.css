@@ -1,0 +1,68 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: "Pixelify Sans", sans-serif;
+  background:#121314;
+  padding:20px;
+}
+header { text-align:center;color:aliceblue;
+  padding:20px; border-radius:10px; margin-bottom:20px;
+}
+.panel {
+  background:transparent; padding:20px; margin-bottom:20px;
+  border-radius:10px; box-shadow:#ffff 1px 1px 1px 1px}
+input, select, button {
+  display:block; width:100%; margin:10px 0; padding:10px;
+}
+button {
+  background:brown; color:white; border:none; border-radius:5px;
+}
+button:hover { background:darkred; }
+
+h2{
+  font-family: "Pixelify Sans", sans-serif;
+
+}
+.contenedor-formularios {
+  display: flex;              /* coloca los formularios en fila */
+  justify-content: space-between;
+  gap: 20px;                  /* espacio entre columnas */
+  width: 100%;                /* ocupa todo el ancho */
+  max-width: 1200px;          /* límite opcional */
+  margin: 20px auto;
+}
+
+.contenedor-formularios .panel {
+  flex: 1;                    /* cada panel ocupa la mitad */
+  min-width: 0;               /* evita desbordes */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  body { padding:10px; }
+  .panel { padding:15px; }
+  .contenedor-formularios {
+    flex-direction: column;   /* se apilan */
+  }
+  .contenedor-formularios .panel {
+    width: 100%;             /* cada panel ocupa todo el ancho */
+    max-width: none;        /* sin límite */
+  }
+
+}
+@media (max-width:480px) {
+  header h1 { font-size:20px;font-family: "Pixelify Sans", sans-serif;}
+  input, select, button { font-size:14px; }
+  .contenedor-formularios {
+    flex-direction: column;   /* se apilan */
+  }
+  .contenedor-formularios .panel {
+    width: 100%;             /* cada panel ocupa todo el ancho */
+    max-width: none;        /* sin límite */
+  }
+
+}
+
