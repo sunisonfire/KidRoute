@@ -13,12 +13,14 @@ const conductor = document.getElementById("conductor");
 const hora = document.getElementById("hora");
 const listaEstudiantesModal = document.getElementById("listaEstudiantesModal");
 const nuevoEstudiante = document.getElementById("nuevoEstudiante");
+const IDEstudiante = document.getElementById("IDEstudiante");
+const cursoEstudiante = document.getElementById("cursoEstudiante");
 const btnAgregarEst = document.getElementById("btnAgregarEst");
 const btnCerrar = document.getElementById("btnCerrar");
 
 let rutas = [];
 let editId = null;
-
+// Web Component
 // Web Component
 const template = document.createElement("template");
 template.innerHTML = `
@@ -75,9 +77,13 @@ background: #f9f9f9;
   gap: 10px;
 }
 .info {
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
 }
+p {
+  line-height: 0; /* más pequeño = menos espacio */
+}
+
 .label {
   color:#4a9e53;
   font-weight: bold;
@@ -123,7 +129,7 @@ border-top: 2px solid #0a1e12;
     align-items: center;
   }
   .izquierda img {
-    max-width: 100%;          /* imagen ocupa todo el ancho */
+    max-width: 40%;          /* imagen ocupa todo el ancho */
   }
   .derecha {
     padding-left: 0;
@@ -156,6 +162,7 @@ border-top: 2px solid #0a1e12;
         <div class="derecha">
           <p class="info conductor"></p>
           <p class="info hora"></p>
+          <p class="info ciudad"></p>
           <div class="estudiantes">
             <h4>Estudiantes</h4>
             <div class="lista-estudiantes"></div>
@@ -169,7 +176,6 @@ border-top: 2px solid #0a1e12;
     </div>
   </section>
 `;
-
 class RouteCard extends HTMLElement {
   constructor() {
     super();
@@ -181,20 +187,22 @@ class RouteCard extends HTMLElement {
     const nombre = this.getAttribute("nombre");
     const conductor = this.getAttribute("conductor");
     const hora = this.getAttribute("hora");
+    const ciudad = this.getAttribute("ciudad");
     const estudiantes = JSON.parse(this.getAttribute("estudiantes") || "[]");
 
     this.shadowRoot.querySelector("h3").textContent = nombre;
     this.shadowRoot.querySelector(".conductor").innerHTML = `<span class="label">Conductor:</span> ${conductor}`;
     this.shadowRoot.querySelector(".hora").innerHTML = `<span class="label">Hora de salida:</span> ${hora}`;
+    this.shadowRoot.querySelector(".ciudad").innerHTML = `<span class="label">Ciudad:</span> ${ciudad}`;
 
     const lista = this.shadowRoot.querySelector(".lista-estudiantes");
     lista.innerHTML="";
-    estudiantes.forEach(est=>{
-      const div=document.createElement("div");
-      div.classList.add("estudiante");
-      div.textContent=est;
-      lista.appendChild(div);
-    });
+estudiantes.forEach(est=>{
+  const div=document.createElement("div");
+  div.classList.add("estudiante");
+  div.textContent = est.nombre;
+  lista.appendChild(div);
+});
 
     this.shadowRoot.querySelector(".eliminar").addEventListener("click", ()=>{
       this.dispatchEvent(new CustomEvent("route:delete",{detail:{nombre},bubbles:true}));
@@ -229,6 +237,7 @@ function renderRutas(){
     card.setAttribute("nombre",r.nombre);
     card.setAttribute("conductor",r.conductor);
     card.setAttribute("hora",r.hora);
+    card.setAttribute("ciudad",r.ciudad);
     card.setAttribute("estudiantes",JSON.stringify(r.estudiantes));
     contenedorRutas.appendChild(card);
   });
@@ -257,10 +266,11 @@ contenedorRutas.addEventListener("route:delete", e=>{
 FormularioRuta.addEventListener("submit", e=>{
   e.preventDefault();
   const ruta = {
-    id: Date.now(), // 🔥 id único
+    id: Date.now(),
     nombre: FormularioRuta.nombreRuta.value,
     conductor: FormularioRuta.conductor.value,
     hora: FormularioRuta.horaSalida.value,
+    ciudad: FormularioRuta.ciudad.value,
     estudiantes:[]
   };
   rutas.push(ruta);
@@ -268,27 +278,40 @@ FormularioRuta.addEventListener("submit", e=>{
   actualizarSelect();
   renderRutas();
   FormularioRuta.reset();
+  FormularioRuta.conductor.value.reset();
 });
 
-// Asignar estudiante
+// Asignar estudiante con ruta seleccionada
 FormularioEstudiante.addEventListener("submit", e=>{
   e.preventDefault();
-  const nombreEst = FormularioEstudiante.nombreEstudiante.value;
+  const nombreEst = document.getElementById("nombreEstudiante").value.trim();
+  const idEst = document.getElementById("IDEstudianteForm").value.trim();
+  const cursoEst = document.getElementById("cursoEstudianteForm").value.trim();
   const rutaNombre = seleccionarRuta.value;
-  const ruta = rutas.find(r=>r.nombre===rutaNombre);
-  if(ruta){
-    ruta.estudiantes.push(nombreEst);
-    guardarRutas();
-    renderRutas();
+
+  if(nombreEst && idEst && cursoEst && rutaNombre){
+    const estudiante = {
+      nombre: nombreEst,
+      id: idEst,
+      curso: cursoEst,
+      ruta: rutaNombre
+    };
+
+    const ruta = rutas.find(r=>r.nombre===rutaNombre);
+    if(ruta){
+      ruta.estudiantes.push(estudiante);
+      guardarRutas();
+      renderRutas();
+    }
   }
   FormularioEstudiante.reset();
 });
+
 
 // Llamar al inicio
 cargarRutas();
 
 //EL MODAL
-
 contenedorRutas.addEventListener("route:edit", e=>{
   const ruta = rutas.find(r=>r.nombre === e.detail.nombre);
   editId = ruta.id;
@@ -297,31 +320,44 @@ contenedorRutas.addEventListener("route:edit", e=>{
   nombre.value = ruta.nombre;
   conductor.value = ruta.conductor;
   hora.value = ruta.hora;
+  ciudad.value = ruta.ciudad;
 
-  listaEstudiantesModal.innerHTML = "";
-  ruta.estudiantes.forEach((est,i)=>{
-    const div = document.createElement("div");
-    div.textContent = est;
-    const btnDel = document.createElement("button");
-    btnDel.textContent = "❌";
-    btnDel.addEventListener("click", ()=>{
-      ruta.estudiantes.splice(i,1);
-      guardarRutas();
-      renderRutas();
-      div.remove();
-    });
-    div.appendChild(btnDel);
-    listaEstudiantesModal.appendChild(div);
+listaEstudiantesModal.innerHTML = "";
+ruta.estudiantes.forEach((est,i)=>{
+  const div = document.createElement("div");
+  div.classList.add("estudiante"); // 👈 clase para estilo
+  div.innerHTML = `
+    <span>${est.nombre}</span>
+    <button class="btnDel">❌</button>
+  `;
+  const btnDel = div.querySelector(".btnDel");
+  btnDel.addEventListener("click", ()=>{
+    ruta.estudiantes.splice(i,1);
+    guardarRutas();
+    renderRutas();
+    div.remove();
   });
+  listaEstudiantesModal.appendChild(div);
+});
 });
 
 btnAgregarEst.addEventListener("click", ()=>{
   const ruta = rutas.find(r=>r.id === editId);
-  if(nuevoEstudiante.value && ruta){
-    ruta.estudiantes.push(nuevoEstudiante.value);
-    guardarRutas();
-    renderRutas();
-    nuevoEstudiante.value = "";
+  if(ruta){
+    const estudiante = {
+      nombre: nuevoEstudiante.value.trim(),
+      id: IDEstudiante.value.trim(),
+      curso: cursoEstudiante.value.trim(),
+      ruta: ruta.nombre
+    };
+    if(estudiante.nombre && estudiante.id && estudiante.curso){
+      ruta.estudiantes.push(estudiante);
+      guardarRutas();
+      renderRutas();
+      nuevoEstudiante.value = "";
+      IDEstudiante.value = "";
+      cursoEstudiante.value = "";
+    }
   }
 });
 

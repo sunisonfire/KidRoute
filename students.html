@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Estudiantes</title>
+    <link rel="stylesheet" href="students.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Lista de Estudiantes</h1>
+        <h2>Gestión de Estudiantes</h2>
+    </header>
+
+    <!-- Tabla -->
+    <table id="tablaEstudiantes">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th class="hihi">Identificación</th>
+                <th>Curso</th>
+                <th class="hihi">Ruta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- MODAL EDITAR ESTUDIANTE -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Editar Estudiante</h2>
+            <form id="formEditar">
+                <input type="text" id="editNombre" placeholder="Nombre">
+                <input type="text" id="editId" placeholder="Identificación">
+                <input type="text" id="editCurso" placeholder="Curso">
+                <select id="editRuta"></select>
+                <button type="submit">Guardar cambios</button>
+            </form>
+            <button id="cerrarModal">Cerrar</button>
+        </div>
+    </div>
+
+
+    <script src="students.js"></script>
+</body>
+
+</html>

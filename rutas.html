@@ -31,18 +31,20 @@
 
   <!-- FORMULARIO ESTUDIANTE -->
   <section class="panel" id="formularioEstudiante">
-    <h2>Asignar estudiante</h2>
-    <form id="FormularioEstudiante">
-      <input type="text" id="nombreEstudiante" placeholder="Nombre estudiante" required>
-      <select id="seleccionarRuta"></select>
-      <button type="submit">Asignar</button>
-      <br>
-      <div class="contenedor">
-  <img src="img/gato.png" class="img1">
-  <img src="img/gato2.png" class="img2">
-</div>
-    </form>
-  </section>
+  <h2>Asignar estudiante</h2>
+  <form id="FormularioEstudiante">
+    <input type="text" id="nombreEstudiante" placeholder="Nombre estudiante" required>
+    <input type="number" id="IDEstudianteForm" placeholder="ID del estudiante" required>
+    <input type="text" id="cursoEstudianteForm" placeholder="Curso del estudiante" required>
+    <select id="seleccionarRuta"></select>
+    <button type="submit">Asignar</button>
+    <br>
+    <div class="contenedor">
+      <img src="img/gato.png" class="img1">
+      <img src="img/gato2.png" class="img2">
+    </div>
+  </form>
+</section>
 </div>
 
 
@@ -57,15 +59,18 @@
   <div class="modal-content">
     <h2>Editar Ruta</h2>
     <form id="formRuta">
-      <input type="text" id="nombre">
-      <input type="text" id="conductor">
-      <input type="time" id="hora">
+      <input type="text" id="nombre" placeholder="Nombre de la ruta">
+      <input type="text" id="conductor" placeholder="Conductor">
+      <input type="time" id="hora" placeholder="Hora de salida">
+      <input type="text" id="ciudad" placeholder="Ciudad">
       <button type="submit">Guardar cambios</button>
     </form>
 
     <h3>Estudiantes</h3>
     <div id="listaEstudiantesModal"></div>
     <input type="text" id="nuevoEstudiante" placeholder="Nuevo estudiante">
+    <input type="number" id="IDEstudiante" placeholder="ID del estudiante">
+    <input type="text" id="cursoEstudiante" placeholder="Curso del estudiante">
     <button id="btnAgregarEst">Agregar estudiante</button>
 
     <button id="btnCerrar">Cerrar</button>

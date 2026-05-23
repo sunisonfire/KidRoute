@@ -29,16 +29,17 @@ header p{
   height:auto; 
   position: relative; 
   display:block; 
-  margin:-100px 10px;
+  margin:-700px 10px;
 }
 .contenedor {
   position: relative;
   width: 200px;
+  margin-left:auto; margin-right:auto;
 }
 
 .img1, .img2 {
   position: absolute;
-  top: 0; left: 0;
+  top: 10px; left: 10px;
   width: 100%;
   transition: opacity 0.4s ease;
 }
@@ -111,13 +112,46 @@ h2{
 
 /* cajita del modal */
 .modal-content {
+   margin-top: 100px;
+   margin-bottom: 100px;
     background: white;
     padding: 20px;
-    width: 350px;
+    width: 60%;
+    height:90%;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
     animation: fadeIn 0.2s ease-in-out;
+}
+
+.estudiante {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espacio entre nombre y botón */
+}
+
+.estudiante span {
+  font-size: 14px;
+}
+
+.estudiante .btnDel {
+  background: #e33260;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 2px;   /* 👈 más pequeño */
+  font-size: 12px;
+  cursor: pointer;
+  width: 30px; height: 30px; /* tamaño fijo para el botón */
+}
+
+.estudiante .btnDel:hover {
+  background: #fda8ab;
+}
+#listaEstudiantesModal{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 👈 columnas automáticas */
+  gap: 10px; 
 }
 /* no mas modal */
 
@@ -136,7 +170,53 @@ h2{
     width: 100%; /* el ancho q sea igual a al tamaño pagina */
     max-width: none; 
   }
+  .contenedor {
+  position: relative;
+  width: 200px;
+  margin-left:10px; margin-right:auto;
+}
+#listaEstudiantesModal{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 👈 columnas automáticas */
+  gap: 10px; 
+}
+.modal-content {
+   margin-top: 100px;
+   margin-bottom: 100px;
+    background: white;
+    padding: 20px;
+    width: 90%;
+    height:90%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.estudiante {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espacio entre nombre y botón */
+}
+
+.estudiante span {
+  font-size: 14px;
+}
+
+.estudiante .btnDel {
+  background: #e33260;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 2px;   /* 👈 más pequeño */
+  font-size: 12px;
+  cursor: pointer;
+  width: 30px; height: 30px; /* tamaño fijo para el botón */
+}
+
+.estudiante .btnDel:hover {
+  background: #fda8ab;
+}
 }
 @media (max-width:480px) {
   header h1 { font-size:20px;font-family: "Pixelify Sans", sans-serif;}
@@ -148,6 +228,52 @@ h2{
     width: 100%; /* cada panel ocupa todo el ancho */
     max-width: none; 
   }
+  .contenedor {
+  position: relative;
+  width: 200px;
+  margin-left:10px; margin-right:auto;
+}
+#listaEstudiantesModal{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 👈 columnas automáticas */
+  gap: 10px; 
+}
+.modal-content {
+   margin-top: 100px;
+   margin-bottom: 100px;
+    background: white;
+    padding: 20px;
+    width: 90%;
+    height:100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.estudiante {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espacio entre nombre y botón */
+}
+
+.estudiante span {
+  font-size: 14px;
+}
+
+.estudiante .btnDel {
+  background: #e33260;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 2px;   /* 👈 más pequeño */
+  font-size: 12px;
+  cursor: pointer;
+  width: 30px; height: 30px; /* tamaño fijo para el botón */
+}
+
+.estudiante .btnDel:hover {
+  background: #fda8ab;
+}
 }
 
