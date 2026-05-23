@@ -20,11 +20,11 @@ function cargarEstudiantes() {
     ruta.estudiantes.forEach(est => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${est.nombre}</td>
+        <td class="lal">${est.nombre}</td>
         <td class="lol">${est.id}</td>
-        <td>${est.curso}</td>
+        <td class="lal">${est.curso}</td>
         <td class="lol">${ruta.nombre}</td>
-        <td><button onclick="abrirModal(${est.id})">Editar</button><button onclick="eliminarEstudiante(${est.id})">Eliminar</button></td>
+        <td id="separense"><button onclick="abrirModal(${est.id})">Editar</button>    <button onclick="eliminarEstudiante(${est.id})">Eliminar</button></td>
       `;
       tbody.appendChild(tr);
     });
