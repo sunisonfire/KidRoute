@@ -4,8 +4,11 @@ body {
   background:#121314;
   padding:20px;
 }
-header { text-align:center;color:#f2678e;
-  padding:20px; border-radius:10px; margin-bottom:20px;
+header { text-align:center;
+  color:#f2678e;
+  padding:20px;
+  border-radius:10px; 
+  margin-bottom:20px;
 }
 
 header p{
@@ -16,10 +19,17 @@ header p{
   border-radius:10px;}
 
 .panel h2 {
-  color:#e33260; margin-bottom:15px; justify-content:center; display:flex;
+  color:#e33260; 
+  margin-bottom:15px; 
+  justify-content:center; 
+  display:flex;
 }
 .gato{
-  width:40%; height:auto; position: relative; display:block; margin:-100px 10px;
+  width:40%; 
+  height:auto; 
+  position: relative; 
+  display:block; 
+  margin:-100px 10px;
 }
 .contenedor {
   position: relative;
@@ -33,10 +43,10 @@ header p{
   transition: opacity 0.4s ease;
 }
 
-.img2 { opacity: 0; } /* oculta la segunda imagen */
+.img2 { opacity: 0; } /*oculta la segunda imagen */
 
-.contenedor:hover .img2 { opacity: 1; } /* aparece al pasar el mouse */
-.contenedor:hover .img1 { opacity: 0; } /* desaparece la primera */
+.contenedor:hover .img2 { opacity: 1; } /* al pasar el mouse*/
+.contenedor:hover .img1 { opacity: 0; } /* esta es la primera que desaparece*/
 
 input, select, button {
   display:block; width:100%; margin:10px 0; padding:10px;
@@ -56,17 +66,17 @@ h2{
 }
 
 .contenedor-formularios {
-  display: flex;              /* coloca los formularios en fila */
+  display: flex; /* en filael formulario */
   justify-content: space-between;
-  gap: 20px;                  /* espacio entre columnas */
-  width: 100%;                /* ocupa todo el ancho */
-  max-width: 1200px;          /* límite opcional */
+  gap: 20px; /* espacio entre columnas */
+  width: 100%;/* ocupa todo el ancho */
+  max-width: 1200px; /* límite opcional */
   margin: 20px auto;
 }
 
 .contenedor-formularios .panel {
-  flex: 1;                    /* cada panel ocupa la mitad */
-  min-width: 0;               /* evita desbordes */
+  flex: 1; /* cada panel ocupa la mitad */
+  min-width: 0; 
   background: #fda8ab;
   border: 1px solid #e33260;
   border-radius: 8px;
@@ -74,15 +84,14 @@ h2{
 }
 .contenedor-rutas {
   display: flex;
-  flex-wrap: wrap;        /* permite que bajen si no caben */
-  gap: 20px;              /* espacio entre tarjetas */
-  justify-content: center;/* centradas en el panel */
+  flex-wrap: wrap;/* si no caben, chao pa abajp*/
+  gap: 20px; /* espacio entre tarjetas */
+  justify-content: center;
 }
 
 .contenedor-rutas route-card {
-  flex: 1 1 calc(50% - 20px); /* cada tarjeta ocupa la mitad */
-  max-width: 600px;           /* límite opcional */
-}
+  flex: 1 1 calc(50% - 20px); /* cada tarjeta ocupa la mitad de la pantalla */
+  max-width: 600px; }
 
 /* lo del modal */
     .modal {
@@ -95,12 +104,12 @@ h2{
     align-items: center;
 }
 
-/* apertura del modal */
+/* pa abrirlo modal */
 .modal.show {
     display: flex; /* activa flexbox para centrar contenido */
 }
 
-/* caja */
+/* cajita del modal */
 .modal-content {
     background: white;
     padding: 20px;
@@ -110,22 +119,22 @@ h2{
 
     animation: fadeIn 0.2s ease-in-out;
 }
-/* fin del modal */
+/* no mas modal */
 
-/* RESPONSIVE */
+/* el RESPONSABLE */
 @media (max-width:768px) {
   body { padding:10px; }
   .panel { padding:15px; }
   .contenedor-formularios {
-    flex-direction: column;   /* se apilan */
+    flex-direction: column;/* pq apilarlos */
   }
     .contenedor-rutas route-card {
     flex: 1 1 100%;
     max-width: none;
   }
   .contenedor-formularios .panel {
-    width: 100%;             /* cada panel ocupa todo el ancho */
-    max-width: none;        /* sin límite */
+    width: 100%; /* el ancho q sea igual a al tamaño pagina */
+    max-width: none; 
   }
 
 }
@@ -133,11 +142,11 @@ h2{
   header h1 { font-size:20px;font-family: "Pixelify Sans", sans-serif;}
   input, select, button { font-size:14px; }
   .contenedor-formularios {
-    flex-direction: column;   /* se apilan */
+    flex-direction: column;   /* igual q arriba */
   }
   .contenedor-formularios .panel {
-    width: 100%;             /* cada panel ocupa todo el ancho */
-    max-width: none;        /* sin límite */
+    width: 100%; /* cada panel ocupa todo el ancho */
+    max-width: none; 
   }
 
 }

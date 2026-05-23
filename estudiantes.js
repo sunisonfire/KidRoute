@@ -103,3 +103,4 @@ contenedor.addEventListener("click", (evento) => {
         renderProductos();
     }
 });
+

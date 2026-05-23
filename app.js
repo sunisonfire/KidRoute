@@ -55,61 +55,34 @@
 
 const apiKey = "c970e78af465153ead65f9fecde4cc9c";
 
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=Bogota&appid=${apiKey}&units=metric&lang=es`)
-
-.then(response => response.json())
-
-.then(data => {
+async function obtenerClima(ciudad) {
+  try {
+    const respuesta = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`
+    );
+    const data = await respuesta.json();
 
     console.log(data);
 
     const clima = data.weather[0].main;
-
     const temperatura = Math.round(data.main.temp);
 
-    const icono =
-    document.getElementById("iconoClima");
-
-    document.getElementById("temperatura")
-    .textContent = `${temperatura}°C`;
-
-    document.getElementById("estadoClima")
-    .textContent = clima;
+    const icono = document.getElementById("iconoClima");
+    document.getElementById("temperatura").textContent = `${temperatura}°C`;
+    document.getElementById("estadoClima").textContent = clima;
 
     if (clima === "Clear") {
-
-        icono.src = "img/sol.png";
-
+      icono.src = "img/sol.png";
+    } else if (clima === "Rain") {
+      icono.src = "img/lluvia.png";
+    } else if (clima === "Clouds") {
+      icono.src = "img/nubes.png";
+    } else if (clima === "Thunderstorm") {
+      icono.src = "img/tormenta.png";
+    } else {
+      icono.src = "img/default.png";
     }
-
-    else if (clima === "Rain") {
-
-        icono.src = "img/lluvia.png";
-
-    }
-
-    else if (clima === "Clouds") {
-
-        icono.src = "img/nubes.png";
-
-    }
-
-    else if (clima === "Thunderstorm") {
-
-        icono.src = "img/tormenta.png";
-
-    }
-
-    else {
-
-        icono.src = "img/default.png";
-
-    }
-
-})
-
-.catch(error => {
-
+  } catch (error) {
     console.log("Error:", error);
-
-});
+  }
+}
