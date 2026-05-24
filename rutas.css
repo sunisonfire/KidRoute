@@ -44,10 +44,6 @@ header p{
   transition: opacity 0.4s ease;
 }
 
-.img2 { opacity: 0; } /*oculta la segunda imagen */
-
-.contenedor:hover .img2 { opacity: 1; } /* al pasar el mouse*/
-.contenedor:hover .img1 { opacity: 0; } /* esta es la primera que desaparece*/
 
 input, select, button {
   display:block; width:100%; margin:10px 0; padding:10px;
@@ -100,7 +96,7 @@ h2{
     position: fixed; /* se fija en toda la pantalla */
     inset: 0; /* top:0 right:0 bottom:0 left:0 (ocupa todo) */
     background: rgba(0, 0, 0, 0.6);
-
+    height: 100%;
     justify-content: center;
     align-items: center;
 }

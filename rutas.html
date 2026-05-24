@@ -1,83 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Gestión de Rutas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="rutas.css">
 </head>
+
 <body>
   <header>
     <div>
-    <h1>Administrador de Rutas</h1>
-    <p>Asignar estudiantes a rutas</p>
+      <h1>Administrador de Rutas</h1>
+      <p>Asignar estudiantes a rutas</p>
     </div>
   </header>
 
   <div class="contenedor-formularios">
-  <!-- FORMULARIO RUTA -->
-  <section class="panel" id="formularioRuta">
-    <h2>Registrar nueva ruta</h2>
-    <form id="FormularioRuta">
-      <input type="text" id="nombreRuta" placeholder="Nombre de la ruta" required>
-      <input type="text" id="conductor" placeholder="Conductor" required>
-      <input type="time" id="horaSalida" required>
-      <input type="text" id="ciudad" placeholder="Ciudad" required>
-      <button type="submit">Agregar Ruta</button>
-    </form>
-  </section>
+    <!-- FORMULARIO RUTA -->
+    <section class="panel" id="formularioRuta">
+      <h2>Registrar nueva ruta</h2>
+      <form id="FormularioRuta">
+        <input type="text" id="nombreRuta" placeholder="Nombre de la ruta" required>
+        <input type="text" id="conductor" placeholder="Conductor" required>
+        <input type="time" id="horaSalida" required>
+        <input type="text" id="ciudad" placeholder="Ciudad" required>
+        <button type="submit">Agregar Ruta</button>
+      </form>
+    </section>
 
-  <!-- FORMULARIO ESTUDIANTE -->
-  <section class="panel" id="formularioEstudiante">
-  <h2>Asignar estudiante</h2>
-  <form id="FormularioEstudiante">
-    <input type="text" id="nombreEstudiante" placeholder="Nombre estudiante" required>
-    <input type="number" id="IDEstudianteForm" placeholder="ID del estudiante" required>
-    <input type="text" id="cursoEstudianteForm" placeholder="Curso del estudiante" required>
-    <select id="seleccionarRuta"></select>
-    <button type="submit">Asignar</button>
-    <br>
-    <div class="contenedor">
-      <img src="img/gato.png" class="img1">
-      <img src="img/gato2.png" class="img2">
-    </div>
-  </form>
-</section>
-</div>
+    <!-- FORMULARIO ESTUDIANTE -->
+    <section class="panel" id="formularioEstudiante">
+      <h2>Asignar estudiante</h2>
+      <form id="FormularioEstudiante">
+        <input type="text" id="nombreEstudiante" placeholder="Nombre estudiante" required>
+        <input type="number" id="IDEstudianteForm" placeholder="ID del estudiante" required>
+        <input type="text" id="cursoEstudianteForm" placeholder="Curso del estudiante" required>
+        <select id="seleccionarRuta"></select>
+        <button type="submit">Asignar</button>
+        <br>
+        <div class="contenedor">
+          <img src="img/gato.png" class="img1" id="gato">
+          <audio id="hamster" src="img/hamster.mp3"></audio>
+        </div>
+      </form>
+    </section>
+  </div>
 
 
   <!-- LISTA DE RUTAS -->
-<section class="panel" id="rutitas">
-  <h2>Lista de rutas</h2>
-  <div id="contenedorRutas" class="contenedor-rutas"></div>
-</section>
+  <section class="panel" id="rutitas">
+    <h2>Lista de rutas</h2>
+    <div id="contenedorRutas" class="contenedor-rutas"></div>
+  </section>
 
   <!--EL MODAL ESE  -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <h2>Editar Ruta</h2>
-    <form id="formRuta">
-      <input type="text" id="nombre" placeholder="Nombre de la ruta">
-      <input type="text" id="conductor" placeholder="Conductor">
-      <input type="time" id="hora" placeholder="Hora de salida">
-      <input type="text" id="ciudad" placeholder="Ciudad">
-      <button type="submit">Guardar cambios</button>
-    </form>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Editar Ruta</h2>
+      <form id="formRuta">
+        <input type="text" id="nombre" placeholder="Nombre de la ruta">
+        <input type="text" id="conductor" placeholder="Conductor">
+        <input type="time" id="hora" placeholder="Hora de salida">
+        <input type="text" id="ciudad" placeholder="Ciudad">
+        <button type="submit">Guardar cambios</button>
+      </form>
 
-    <h3>Estudiantes</h3>
-    <div id="listaEstudiantesModal"></div>
-    <input type="text" id="nuevoEstudiante" placeholder="Nuevo estudiante">
-    <input type="number" id="IDEstudiante" placeholder="ID del estudiante">
-    <input type="text" id="cursoEstudiante" placeholder="Curso del estudiante">
-    <button id="btnAgregarEst">Agregar estudiante</button>
+      <h3>Estudiantes</h3>
+      <div id="listaEstudiantesModal"></div>
+      <input type="text" id="nuevoEstudiante" placeholder="Nuevo estudiante">
+      <input type="number" id="IDEstudiante" placeholder="ID del estudiante">
+      <input type="text" id="cursoEstudiante" placeholder="Curso del estudiante">
+      <button id="btnAgregarEst">Agregar estudiante</button>
 
-    <button id="btnCerrar">Cerrar</button>
+      <button id="btnCerrar">Cerrar</button>
+    </div>
+
   </div>
-</div>
 
 
   <script src="rutas.js"></script>
 </body>
+
 </html>

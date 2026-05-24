@@ -176,6 +176,15 @@ border-top: 2px solid #0a1e12;
     </div>
   </section>
 `;
+
+function soloLetras(valor) {
+  return /^[A-Za-z\s]+$/.test(valor); // solo letras y espacios
+}
+
+function soloNumeros(valor) {
+  return /^\d+$/.test(valor); // solo dígitos
+}
+
 class RouteCard extends HTMLElement {
   constructor() {
     super();
@@ -262,23 +271,43 @@ contenedorRutas.addEventListener("route:delete", e=>{
   renderRutas();
 });
 
-// Agregar ruta
-FormularioRuta.addEventListener("submit", e=>{
+FormularioRuta.addEventListener("submit", e => {
   e.preventDefault();
+
+  const nombreRuta = FormularioRuta.nombreRuta.value.trim();
+  const conductorRuta = FormularioRuta.conductor.value.trim();
+  const horaSalida = FormularioRuta.horaSalida.value.trim();
+  const ciudadRuta = FormularioRuta.ciudad.value.trim();
+
+  // Validaciones
+  if (!soloLetras(nombreRuta)) {
+    alert("El nombre de la ruta solo puede contener letras");
+    return;
+  }
+  if (!soloLetras(conductorRuta)) {
+    alert("El nombre del conductor solo puede contener letras");
+    return;
+  }
+  if (!soloLetras(ciudadRuta)) {
+    alert("La ciudad solo puede contener letras");
+    return;
+  }
+
+  // Si pasa las validaciones, se guarda
   const ruta = {
     id: Date.now(),
-    nombre: FormularioRuta.nombreRuta.value,
-    conductor: FormularioRuta.conductor.value,
-    hora: FormularioRuta.horaSalida.value,
-    ciudad: FormularioRuta.ciudad.value,
-    estudiantes:[]
+    nombre: nombreRuta,
+    conductor: conductorRuta,
+    hora: horaSalida,
+    ciudad: ciudadRuta,
+    estudiantes: []
   };
+
   rutas.push(ruta);
   guardarRutas();
   actualizarSelect();
   renderRutas();
   FormularioRuta.reset();
-  FormularioRuta.conductor.value.reset();
 });
 
 // Asignar estudiante con ruta seleccionada
@@ -289,6 +318,18 @@ FormularioEstudiante.addEventListener("submit", e=>{
   const cursoEst = document.getElementById("cursoEstudianteForm").value.trim();
   const rutaNombre = seleccionarRuta.value;
 
+  if (!soloLetras(nombreEst)) {
+    alert("El nombre solo puede contener letras");
+    return;
+  }
+  if (!soloNumeros(idEst)) {
+    alert("La identificación solo puede contener números");
+    return;
+  }
+  if (!soloLetras(cursoEst)) {
+    alert("El curso solo puede contener letras");
+    return;
+  }
   if(nombreEst && idEst && cursoEst && rutaNombre){
     const estudiante = {
       nombre: nombreEst,
@@ -376,4 +417,25 @@ formRuta.addEventListener("submit", e=>{
 
 btnCerrar.addEventListener("click", ()=>{
   modal.classList.remove("show");
+});
+
+setInterval(() => {
+  indice = (indice + 1) % ciudades.length; // avanzar en la lista
+  obtenerClima(ciudades[indice]);
+}, 60000);
+
+
+const gato = document.getElementById("gato");
+const hamster = document.getElementById("hamster");
+
+gato.addEventListener("mouseenter", () => {
+  gato.src = "img/gato3.png";   
+  hamster.currentTime = 0;
+  hamster.play();
+});
+
+gato.addEventListener("mouseleave", () => {
+  gato.src = "img/gato.png";   
+  hamster.pause();
+  hamster.currentTime = 0;
 });
