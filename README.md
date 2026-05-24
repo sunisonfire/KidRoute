@@ -2,13 +2,12 @@
 
 ## 🚍 Rutas Seguras Kids
 
-Sistema frontend para la gestión de rutas escolares y asignación de estudiantes, desarrollado únicamente con HTML, CSS y JavaScript Vanilla.
-
+Sistema frontend para la gestión de rutas escolares y asignación de estudiantes, desarrollado únicamente
 ---
 
 # 📌 Descripción del Proyecto
 
-Rutas Seguras Kids es una aplicación web que permite crear y administrar rutas escolares de manera dinámica. Los usuarios pueden agregar rutas, asignar estudiantes, editar información y visualizar datos actualizados en tiempo real desde la interfaz.
+Rutas Seguras Kids es una aplicación web que permite crear y administrar rutas escolares, Los usuarios pueden agregar rutas, asignar estudiantes, editar información y visualizar datos actualizados en tiempo real desde la interfaz.
 
 Además, el proyecto integra una API pública para mostrar información climática relacionada con las rutas.
 
@@ -55,10 +54,10 @@ Además, el proyecto integra una API pública para mostrar información climáti
 
 ## Web Components
 
-* Componente personalizado `<route-card>`.
+* Componente personalizado.
 * Uso de `template` y `Shadow DOM`.
 
-## Responsive Design
+## Responsive
 
 * Adaptación a celulares, tablets y escritorio.
 * Implementación de breakpoints con `@media`.
@@ -68,59 +67,69 @@ Además, el proyecto integra una API pública para mostrar información climáti
 # 📂 Estructura del Proyecto
 
 ```bash
-📁 rutas-seguras-kids
+📁 realProyectito
 │
+├── 📁 img
+│   └── /img/.png
+│   (HomePage)
 ├── index.html
+├── index.css
+├── app.js
+│   (Ruta)
+├── rutas.html
+├── rutas.css
+├── rutas.js
+│   (Lista)
+├── students.html
+├── students.css
+├── students.js
+│   (final)
+├── aboutus.html
+├── aboutus.html
+├── about us.html
+│ 
 ├── README.md
-│
-├── 📁 css
-│   └── styles.css
-│
-├── 📁 js
-│   ├── app.js
+├── explanation.txt
 
-1. Clonar el repositorio:
 ```
 
-2. Abrir la carpeta del proyecto.
-
-3. Ejecutar `index.html` en el navegador.
-
----
 
 # 🌦️ API Utilizada
 
 ## OpenWeather API
 
-Permite obtener información climática en tiempo real.
+Permite obtener información climática en tiempo real, presenta un cambio cada cierto tiempo.
+
 
 ---
 
 # 📸 Capturas de Pantalla
 
-Agregar aquí imágenes del proyecto funcionando.
+La página principal que cuenta con la API del clima y un menú hamburguesa
+![Home Page](image.png)
+
+La administración de rutas, el usuario puede crear una ruta y aparecerá automáticamente en la parte inferior, además puede agregarle estudiantes que apareceran dentro de la ruta, y podrá editar los componentes de la ruta (Nombre, conductor, hora de salida y ciudad), además de eliminar los estudiantes de la ruta.
+![crear ruta](image-1.png)
+![ejemplo](image-2.png)
+
+Despues de crear la ruta, podrá dirigirse al apartado de estudiantes, que mostrará una lista editable de los datos antes creados, podrá editar los componentes de los estudiantes y podrá eliminarlos.
+![alt text](image-3.png)
+
+Para cerrar, un corto about us o el por qué preferirnos.
+![alt text](image-4.png)
 
 ---
-
 # 👨‍💻 Autor
 
-* Nombre del estudiante o equipo
+@sunisonfire
+Danna Téllez
 
 ---
 
 # 🔗 Repositorio
 
-Agregar enlace del repositorio en GitHub.
+[https://github.com/sunisonfire/KidRoute.git]
 
-```bash
-git clone URL_DEL_REPOSITORIO
-│   ├── routes.js
-│   ├── api.js
-│   └── components.js
-│
-└── 📁 assets
-# 🚀 Cómo Ejecutar el Proyecto
 
----
 
 
