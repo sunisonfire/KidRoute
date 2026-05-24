@@ -1,8 +1,6 @@
 # README.md
 
 ## 🚍 Rutas Seguras Kids
-
-Sistema frontend para la gestión de rutas escolares y asignación de estudiantes, desarrollado únicamente
 ---
 
 # 📌 Descripción del Proyecto
@@ -74,7 +72,7 @@ Además, el proyecto integra una API pública para mostrar información climáti
 │   (HomePage)
 ├── index.html
 ├── index.css
-├── app.js
+├── index.js
 │   (Ruta)
 ├── rutas.html
 ├── rutas.css
@@ -106,17 +104,17 @@ Permite obtener información climática en tiempo real, presenta un cambio cada 
 # 📸 Capturas de Pantalla
 
 La página principal que cuenta con la API del clima y un menú hamburguesa
-![Home Page](image.png)
+![Home Page](/img/image.png)
 
 La administración de rutas, el usuario puede crear una ruta y aparecerá automáticamente en la parte inferior, además puede agregarle estudiantes que apareceran dentro de la ruta, y podrá editar los componentes de la ruta (Nombre, conductor, hora de salida y ciudad), además de eliminar los estudiantes de la ruta.
-![crear ruta](image-1.png)
-![ejemplo](image-2.png)
+![crear ruta](/img/image-1.png)
+![ejemplo](/img/image-2.png)
 
 Despues de crear la ruta, podrá dirigirse al apartado de estudiantes, que mostrará una lista editable de los datos antes creados, podrá editar los componentes de los estudiantes y podrá eliminarlos.
-![alt text](image-3.png)
+![alt text](/img/image-3.png)
 
 Para cerrar, un corto about us o el por qué preferirnos.
-![alt text](image-4.png)
+![alt text](/img/image-4.png)
 
 ---
 # 👨‍💻 Autor

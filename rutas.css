@@ -1,275 +1,368 @@
-* { margin:0; padding:0; box-sizing:border-box; }
+/* todo el documento*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Pixelify Sans", sans-serif;
-  background:#121314;
-  padding:20px;
-}
-header { text-align:center;
-  color:#f2678e;
-  padding:20px;
-  border-radius:10px; 
-  margin-bottom:20px;
+  background: #121314;
+  padding: 20px;
 }
 
-header p{
-  color:#fda8ab;
+/*titulitos*/
+header {
+  text-align: center;
+  color: #f2678e;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
+
+header p {
+  color: #fda8ab;
+}
+
 .panel {
-  background:transparent; padding:20px; margin-bottom:20px;
-  border-radius:10px;}
+  background: transparent;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
 
 .panel h2 {
-  color:#e33260; 
-  margin-bottom:15px; 
-  justify-content:center; 
-  display:flex;
+  color: #e33260;
+  margin-bottom: 15px;
+  justify-content: center;
+  display: flex;
 }
-.gato{
-  width:40%; 
-  height:auto; 
-  position: relative; 
-  display:block; 
-  margin:-700px 10px;
+
+/*el gatooo*/
+.gato {
+  width: 40%;
+  height: auto;
+  position: relative;
+  display: block;
+  margin: -700px 10px;
 }
+
 .contenedor {
   position: relative;
   width: 200px;
-  margin-left:auto; margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.img1, .img2 {
+.img1,
+.img2 {
   position: absolute;
-  top: 10px; left: 10px;
+  top: 10px;
+  left: 10px;
   width: 100%;
   transition: opacity 0.4s ease;
 }
 
-
-input, select, button {
-  display:block; width:100%; margin:10px 0; padding:10px;
-}
+/*para los datos que ingresa el usuario*/
+input,
+select,
 button {
-  background:#e33260; color:white; border:none; border-radius:5px;
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
 }
-button:hover { background:#fda8ab;color:#e33260; border:#e33260 2px solid; }
 
-h2{
+button {
+  background: #e33260;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #fda8ab;
+  color: #e33260;
+  border: #e33260 2px solid;
+}
+
+/*ponerle la letra*/
+h2 {
   font-family: "Pixelify Sans", sans-serif;
 
 }
 
-#rutitas h2{
+#rutitas h2 {
   color: #85c972;
 }
 
+/*formularios para que esten uno al lado del otro y con un espacio*/
 .contenedor-formularios {
-  display: flex; /* en filael formulario */
+  display: flex;
   justify-content: space-between;
-  gap: 20px; /* espacio entre columnas */
-  width: 100%;/* ocupa todo el ancho */
-  max-width: 1200px; /* límite opcional */
+  gap: 20px;
+  /* espacio entre columnas */
+  width: 100%;
+  max-width: 1200px;
+  /* límite */
   margin: 20px auto;
 }
 
+/*paneles de 1 y 1*/
 .contenedor-formularios .panel {
-  flex: 1; /* cada panel ocupa la mitad */
-  min-width: 0; 
+  flex: 1;
+  /* cada panel ocupa la mitad */
+  min-width: 0;
   background: #fda8ab;
   border: 1px solid #e33260;
   border-radius: 8px;
   padding: 20px;
 }
+
 .contenedor-rutas {
   display: flex;
-  flex-wrap: wrap;/* si no caben, chao pa abajp*/
-  gap: 20px; /* espacio entre tarjetas */
+  flex-wrap: wrap;
+  /* si no caben, chao pa abajp*/
+  gap: 20px;
+  /* espacio entre tarjetas */
   justify-content: center;
 }
 
+/*las q aparecen*/
 .contenedor-rutas route-card {
-  flex: 1 1 calc(50% - 20px); /* cada tarjeta ocupa la mitad de la pantalla */
-  max-width: 600px; }
+  flex: 1 1 calc(50% - 20px);
+  /* cada tarjeta ocupa la mitad de la pantalla */
+  max-width: 600px;
+}
 
 /* lo del modal */
-    .modal {
-    display: none; /* oculto por defecto */
-    position: fixed; /* se fija en toda la pantalla */
-    inset: 0; /* top:0 right:0 bottom:0 left:0 (ocupa todo) */
-    background: rgba(0, 0, 0, 0.6);
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+.modal {
+  display: none;
+  /* oculto por defecto */
+  position: fixed;
+  /* se fija en toda la pantalla */
+  inset: 0;
+  /* top:0 right:0 bottom:0 left:0 (ocupa todo) */
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 /* pa abrirlo modal */
 .modal.show {
-    display: flex; /* activa flexbox para centrar contenido */
+  display: flex;
+  /* activa flexbox para centrar contenido */
 }
 
 /* cajita del modal */
 .modal-content {
-   margin-top: 100px;
-   margin-bottom: 100px;
-    background: white;
-    padding: 20px;
-    width: 60%;
-    height:90%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background: white;
+  padding: 20px;
+  width: 60%;
+  height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
-    animation: fadeIn 0.2s ease-in-out;
+  animation: fadeIn 0.2s ease-in-out;
 }
 
+/*para eliminar estudiantes en el modal*/
 .estudiante {
   display: flex;
   align-items: center;
-  gap: 20px; /* espacio entre nombre y botón */
+  gap: 20px;
+  /* espacio entre nombre y botón */
 }
 
 .estudiante span {
   font-size: 14px;
 }
 
+/*eliminar botones*/
 .estudiante .btnDel {
   background: #e33260;
   color: white;
   border: none;
   border-radius: 4px;
-  padding: 8px 2px;   /* 👈 más pequeño */
+  padding: 8px 2px;
   font-size: 12px;
   cursor: pointer;
-  width: 30px; height: 30px; /* tamaño fijo para el botón */
+  width: 30px;
+  height: 30px;
 }
 
 .estudiante .btnDel:hover {
   background: #fda8ab;
 }
-#listaEstudiantesModal{
+
+#listaEstudiantesModal {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 👈 columnas automáticas */
-  gap: 10px; 
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  /* columnas automáticas */
+  gap: 10px;
 }
+
 /* no mas modal */
 
 /* el RESPONSABLE */
 @media (max-width:768px) {
-  body { padding:10px; }
-  .panel { padding:15px; }
-  .contenedor-formularios {
-    flex-direction: column;/* pq apilarlos */
+  body {
+    padding: 10px;
   }
-    .contenedor-rutas route-card {
+
+  .panel {
+    padding: 15px;
+  }
+
+  .contenedor-formularios {
+    flex-direction: column;
+    /* pq apilarlos */
+  }
+
+  .contenedor-rutas route-card {
     flex: 1 1 100%;
     max-width: none;
   }
+
   .contenedor-formularios .panel {
-    width: 100%; /* el ancho q sea igual a al tamaño pagina */
-    max-width: none; 
+    width: 100%;
+    max-width: none;
   }
+
   .contenedor {
-  position: relative;
-  width: 200px;
-  margin-left:10px; margin-right:auto;
-}
-#listaEstudiantesModal{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 👈 columnas automáticas */
-  gap: 10px; 
-}
-.modal-content {
-   margin-top: 100px;
-   margin-bottom: 100px;
+    position: relative;
+    width: 200px;
+    margin-left: 10px;
+    margin-right: auto;
+  }
+
+  /*modal*/
+  #listaEstudiantesModal {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    /* columnas automáticas */
+    gap: 10px;
+  }
+
+  .modal-content {
+    margin-top: 100px;
+    margin-bottom: 100px;
     background: white;
     padding: 20px;
     width: 90%;
-    height:90%;
+    height: 90%;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
     animation: fadeIn 0.2s ease-in-out;
+  }
+
+  .estudiante {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* espacio entre nombre y botón */
+  }
+
+  .estudiante span {
+    font-size: 14px;
+  }
+
+  .estudiante .btnDel {
+    background: #e33260;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 2px;
+    font-size: 12px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
+  .estudiante .btnDel:hover {
+    background: #fda8ab;
+  }
 }
 
-.estudiante {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* espacio entre nombre y botón */
-}
-
-.estudiante span {
-  font-size: 14px;
-}
-
-.estudiante .btnDel {
-  background: #e33260;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 2px;   /* 👈 más pequeño */
-  font-size: 12px;
-  cursor: pointer;
-  width: 30px; height: 30px; /* tamaño fijo para el botón */
-}
-
-.estudiante .btnDel:hover {
-  background: #fda8ab;
-}
-}
 @media (max-width:480px) {
-  header h1 { font-size:20px;font-family: "Pixelify Sans", sans-serif;}
-  input, select, button { font-size:14px; }
+  header h1 {
+    font-size: 20px;
+    font-family: "Pixelify Sans", sans-serif;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 14px;
+  }
+
   .contenedor-formularios {
-    flex-direction: column;   /* igual q arriba */
+    flex-direction: column;
+    /* igual q arriba */
   }
+
   .contenedor-formularios .panel {
-    width: 100%; /* cada panel ocupa todo el ancho */
-    max-width: none; 
+    width: 100%;
+    max-width: none;
   }
+
   .contenedor {
-  position: relative;
-  width: 200px;
-  margin-left:10px; margin-right:auto;
-}
-#listaEstudiantesModal{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 👈 columnas automáticas */
-  gap: 10px; 
-}
-.modal-content {
-   margin-top: 100px;
-   margin-bottom: 100px;
+    position: relative;
+    width: 200px;
+    margin-left: 10px;
+    margin-right: auto;
+  }
+
+  #listaEstudiantesModal {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    /* columnas automáticas */
+    gap: 10px;
+  }
+
+  .modal-content {
+    margin-top: 100px;
+    margin-bottom: 100px;
     background: white;
     padding: 20px;
     width: 90%;
-    height:100%;
+    height: 100%;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
     animation: fadeIn 0.2s ease-in-out;
-}
+  }
 
-.estudiante {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* espacio entre nombre y botón */
-}
+  .estudiante {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* espacio entre nombre y botón */
+  }
 
-.estudiante span {
-  font-size: 14px;
-}
+  .estudiante span {
+    font-size: 14px;
+  }
 
-.estudiante .btnDel {
-  background: #e33260;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 2px;   /* 👈 más pequeño */
-  font-size: 12px;
-  cursor: pointer;
-  width: 30px; height: 30px; /* tamaño fijo para el botón */
-}
+  .estudiante .btnDel {
+    background: #e33260;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 2px;
+    font-size: 12px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    /* tamaño fijo para el botón */
+  }
 
-.estudiante .btnDel:hover {
-  background: #fda8ab;
+  .estudiante .btnDel:hover {
+    background: #fda8ab;
+  }
 }
-}
-

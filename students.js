@@ -7,6 +7,8 @@ let modal = document.getElementById("modal");
 let formEditar = document.getElementById("formEditar");
 let cerrarModal = document.getElementById("cerrarModal");
 
+//se muestran los estudianyes que ya estaban guardados en el loocalStorage,
+//  si es que hay alguno guardado, sino no hace nada
 
 function cargarEstudiantes() {
   const data = localStorage.getItem("rutas");
@@ -15,7 +17,7 @@ function cargarEstudiantes() {
   const rutas = JSON.parse(data);
   const tbody = document.querySelector("#tablaEstudiantes tbody");
   tbody.innerHTML = "";
-
+  //y lo muestra asi bien tierno 
   rutas.forEach(ruta => {
     ruta.estudiantes.forEach(est => {
       const tr = document.createElement("tr");
@@ -40,7 +42,9 @@ function abrirModal(idEstudiante) {
   let estudianteEncontrado = null;
   let rutaIndex = null;
   let estIndex = null;
-
+  //dentro del array de rutas, busca el estudiante que tenga el id que se le dio 
+  // a la función, y si lo encuentra, guarda su información y los índices
+  //  correspondientes para luego mostrarlo en el modal
   rutas.forEach((ruta, i) => {
     ruta.estudiantes.forEach((est, j) => {
       if (est.id == idEstudiante) {
@@ -94,9 +98,9 @@ function eliminarEstudiante(idEstudiante) {
 
 // Cerrar modal
 cerrarModal.addEventListener("click", () => modal.style.display = "none");
-window.addEventListener("click", e => { if(e.target === modal) modal.style.display = "none"; });
+window.addEventListener("click", e => { if (e.target === modal) modal.style.display = "none"; });
 
-// 🔥 Cargar rutas en los selects
+// Cargar rutas en los selects del otro place
 function cargarRutas() {
   const rutas = JSON.parse(localStorage.getItem("rutas")) || [];
   editRuta.innerHTML = `<option value="">-- Sin asignar --</option>`;

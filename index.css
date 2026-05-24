@@ -16,7 +16,7 @@ body {
     overflow-x: hidden;
 }
 
-/* barraIzq */
+/* barra de la izquierda */
 
 .barraIzq {
     position: fixed;
@@ -43,7 +43,7 @@ body {
         5px 0 25px #0a5b10;
 }
 
-/* LOGO */
+/* logo */
 
 .logo {
     display: flex;
@@ -71,7 +71,7 @@ body {
     color: #0f5b13;
 }
 
-/* MENU */
+/* menu hamburguesaa */
 
 .menu {
     display: flex;
@@ -112,7 +112,7 @@ body {
     color: #0f5b13;
 }
 
-/* ICONOS */
+/* icono */
 
 .loguito {
     width: 30%;
@@ -124,15 +124,17 @@ body {
 
     display: inline-block;
 }
+
 .loguito img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
-/* CONTENIDO */
+
+/* espacio con el contenido */
 
 .contenido {
-    
+
     margin-left: 260px;
 
     width: calc(100% - 260px);
@@ -142,7 +144,7 @@ body {
     flex-direction: column;
 }
 
-/* barraSuperior */
+/* barra superior del menu */
 
 .barraSuperior {
     height: 90px;
@@ -200,7 +202,7 @@ body {
     object-fit: contain;
 }
 
-/* admin */
+/* el bus */
 .bus-contenedor {
     width: 100%;
     overflow: hidden;
@@ -213,6 +215,7 @@ body {
     animation: moverBus 10s linear infinite alternate;
 }
 
+/* animacion del bus */
 @keyframes moverBus {
     from {
         transform: translateX(0);
@@ -256,7 +259,7 @@ body {
     border-width: 2px;
 
     border-style: solid;
-    
+
     margin-top: 1%;
 
     height: 500px;
@@ -276,7 +279,7 @@ body {
     overflow: hidden;
 }
 
-/* centralTitulo */
+/* titulo del centro */
 
 .centralTitulo {
     max-width: 500px;
@@ -308,7 +311,8 @@ body {
     color: #444;
 }
 
-.busImg img{
+/* bus imagen grande */
+.busImg img {
 
     width: 160%;
     height: 90%;
@@ -317,7 +321,7 @@ body {
 
 }
 
-.busImg{
+.busImg {
     margin-left: 20%;
     object-fit: contain;
     justify-content: center;
@@ -325,7 +329,8 @@ body {
     background-color: transparent;
 
 }
-/* BUTTON */
+
+/* Boton */
 
 .centralTitulo button {
     margin-top: 30px;
@@ -357,7 +362,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* MENU HAMBURGUESA */
+/* hamburguesa */
 
 .menuHamburguesa {
     display: none;
@@ -370,10 +375,6 @@ body {
 
     cursor: pointer;
 }
-
-/* RESPONSIVE */
-
-
 
 .menuHamburguesa {
     display: block;
@@ -409,13 +410,9 @@ body {
     font-size: 2.5rem;
 }
 
-@media screen and (max-width: 768px) {
-    .busImg{
-    display: none;
-}
-}
+/* RESPONSIVE */
 
-/* 📱 Móviles pequeños (hasta 480px) */
+/* Móviles pequeños */
 @media screen and (max-width: 480px) {
     .barraIzq {
         width: 200px;
@@ -437,11 +434,15 @@ body {
     }
 }
 
-/* 📲 Tablets (481px a 768px) */
+/*  Tablets */
 @media screen and (max-width: 768px) {
     .barraIzq {
         transform: translateX(-100%);
         transition: .4s;
+    }
+
+    .busImg {
+        display: none;
     }
 
     .barraIzq.activo {
@@ -463,7 +464,7 @@ body {
     }
 }
 
-/* 💻 Pantallas grandes (más de 1200px) */
+/*  Pantallas grandes  */
 @media screen and (min-width: 1200px) {
     .central {
         padding: 80px;

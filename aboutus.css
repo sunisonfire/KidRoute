@@ -1,18 +1,21 @@
-.titulo{
+.titulo {
     font-family: 'Pixelify Sans', sans-serif;
     text-align: center;
     margin-top: 50px;
 }
-body{
+
+body {
     background-color: rgb(120, 184, 240);
 }
-.contenedor{
+
+.contenedor {
     display: flex;
     justify-content: center;
     gap: 50px;
     margin-top: 50px;
 }
-.divwe{
+
+.divwe {
     background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 10px;
@@ -20,37 +23,44 @@ body{
     justify-content: center;
     margin-left: 35%;
 }
-#contenerBus{
-    margin-left:30%;
+
+#contenerBus {
+    margin-left: 30%;
     background-image: url("/img/fondito.jpg");
     background-size: cover;
     background-position: center;
     width: 40%;
     height: 350px;
 }
-#contenerBus img{
+
+#contenerBus img {
     width: 100%;
     height: auto;
     z-index: 10;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 480px),
+(max-width: 768px) {
     .contenedor {
         flex-direction: column;
         align-items: center;
     }
+
     .divwe {
         width: 80%;
         margin-left: 5%;
     }
+
     #contenerBus {
         width: 80%;
         height: 80%;
         margin-left: 5%;
     }
-#contenerBus img{
-    width: 100%;
-    height: auto;
-    z-index: 10;
-    margin-top: 100%;
-}
+
+    #contenerBus img {
+        width: 100%;
+        height: auto;
+        z-index: 10;
+        margin-top: 100%;
+    }
 }

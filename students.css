@@ -1,14 +1,17 @@
+/*ehh primero el responsive*/
+@media (max-width: 600px),
+(max-width: 768px) {
 
-@media (max-width: 600px), (max-width: 768px){
+    h2 {
+        display: none;
+    }
 
-    h2{
-    display: none;
+    h1 {
+        font-size: 200%;
+        line-height: 0.8;
+        margin-left: 0px;
     }
-    h1{
-    font-size: 200%;
-    line-height: 0.8;
-    margin-left: 0px;
-    }
+
     table,
     thead,
     tbody,
@@ -17,8 +20,11 @@
     tr {
         display: block;
     }
-    table{
-        background-color: transparent;    }
+
+    table {
+        background-color: transparent;
+    }
+
     tr {
         margin-bottom: 20px;
         border: 1px solid #ccc;
@@ -32,71 +38,73 @@
     }
 
     .actions {
-            justify-content: flex-start;
-        }
+        justify-content: flex-start;
+    }
 
     .lol {
-    background-color: #d7c2cc;
-    color: #000000;
+        background-color: #d7c2cc;
+        color: #000000;
+    }
+
+    .lal {
+        color: #000000;
+    }
+
+    .hihi {
+        background-color: #d7c2cc;
+        font-weight: bold;
+        color: #000000;
+    }
+
+    button {
+        background: #500c1e;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #b08f98;
+        border: #500c1e 2px solid;
+        color: #500c1e;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        border: 1px solid #d7c2cc;
+        text-align: center;
+    }
+
+    th {
+        background: transparent;
+        color: #000000;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        width: 90%;
+        height: 90%;
+        background: rgba(12, 0, 0, 0.334);
+    }
+
+    .modal-content {
+        margin-top: 100px;
+        margin-left: 15px;
+        margin-bottom: 100px;
+        background: white;
+        padding: 20px;
+        width: 90%;
+        height: 40%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: #500c1e 2px solid;
+        animation: fadeIn 0.2s ease-in-out;
+    }
 }
 
-.lal {
-    color: #000000;
-}
-
-.hihi {
-    background-color: #d7c2cc;
-    font-weight: bold;
-    color: #000000;
-}
-
-button {
-    background: #500c1e;
-    color: #ffffff;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #b08f98;
-    border: #500c1e 2px solid;
-    color: #500c1e;
-}
-
-th,
-td {
-    padding: 10px;
-    border: 1px solid #d7c2cc;
-    text-align: center;
-}
-
-th {
-    background: transparent;
-    color: #000000;
-}
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 10;
-    width: 90%;
-    height: 90%;
-    background: rgba(12, 0, 0, 0.334);
-}
-
-.modal-content {
-    margin-top: 100px;
-    margin-left: 15px;
-    margin-bottom: 100px;
-    background: white;
-    padding: 20px;
-    width: 90%;
-    height:40%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border:#500c1e 2px solid;
-    animation: fadeIn 0.2s ease-in-out;
-}
-}
-    
+/*AHORA SI LO NORMAL*/
 body {
     font-family: "Pixelify Sans", sans-serif;
     ;
@@ -131,6 +139,7 @@ button {
     border: 1px solid #efe3bd;
 }
 
+/*SUPESUTAMENTE LOS BOTONES SE SEPARAN TANTICO, en realidad se separan con el br*/
 .separense button {
     gap: 10%px;
     justify-content: center;

@@ -4,11 +4,11 @@ La empresa Rutas Seguras Kids necesita un sistema frontend que permita organizar
 
 El objetivo es demostrar dominio de:
 
-Manipulación dinámica del DOM.
-Uso de eventos y asincronía.
-Creación de componentes reutilizables con Web Components.
-Buenas prácticas de organización de proyecto (HTML, CSS y JS separados).
-Consumo de API pública.
+Manipulación dinámica del DOM.😛
+Uso de eventos y asincronía.😛
+Creación de componentes reutilizables con Web Components.😛
+Buenas prácticas de organización de proyecto (HTML, CSS y JS separados).😛
+Consumo de API pública.😛
 
 
 Requerimientos del Proyecto:
@@ -28,8 +28,8 @@ Usar fetch y async/await.😛
 Web Components y Templates😛
 Crear un Web Component (<route-card>) para representar las tarjetas de rutas.😛
 Usar <template> y Shadow DOM.😛
-Responsividad y presentación 
-Proyecto responsive con al menos 3 breakpoints (@media).
+Responsividad y presentación 😛
+Proyecto responsive con al menos 3 breakpoints (@media).😛
 Diseño coherente y con buena experiencia de usuario.😛
 Resultado esperado
 
@@ -37,7 +37,7 @@ Entregables:
 Carpeta con estructura organizada.😛
 Código fuente en HTML, CSS y JS.😛
 Documento README.md con:
-Descripción del proyecto.
-Instrucciones de ejecución.
-Capturas de pantalla.
-Repositorio en GitHub con commits.
+Descripción del proyecto.😛
+Instrucciones de ejecución.😛
+Capturas de pantalla.😛
+Repositorio en GitHub con commits.😛
