@@ -159,11 +159,27 @@ busquedaEst.addEventListener("input", () => {
       curso.includes(texto) ||
       ruta.includes(texto)
     ) {
-      tr.style.display = ""; // visible
-      tr.style.backgroundColor = "#ffff99"; // resaltar
+      tr.style.display = "";
+       // visible
     } else {
       tr.style.display = "none"; // oculto
     }
+    
+        if (texto=="ruta norte"){
+        tr.style.backgroundColor = "#ff7171";}// resaltar fila si coincide con ruta
+        else if (texto=="ruta sur")
+          {console.log("ruta sur");
+          tr.style.backgroundColor = "#60a0ff";}// resaltar fila si coincide con ruta
+        else if (texto=="ruta este")
+          {console.log("ruta sur");
+          tr.style.backgroundColor = "#f1ff6e";}// resaltar fila si coincide con ruta
+        else if (texto=="ruta oeste")
+          {console.log("ruta oeste");
+          tr.style.backgroundColor = "#5ffaa0";}// resaltar fila si coincide con ruta
+        else if (texto=="ruta centro")
+          {console.log("ruta centro");
+          tr.style.backgroundColor = "#ff78dd";}// resaltar fila si coincide con ruta
+        else {tr.style.backgroundColor = "transparent";} // resetear color si no coincide con ruta
   });
 });
 function mostrarEstadisticas() {
