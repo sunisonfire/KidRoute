@@ -5,6 +5,11 @@
 }
 
 body {
+    
+      font-family: "Pixelify Sans", sans-serif;
+      text-align: center;
+      padding: 30px;
+    
     background-color: rgb(120, 184, 240);
 }
 
@@ -39,6 +44,16 @@ body {
     z-index: 10;
 }
 
+
+    #resultado {
+      margin-top: 20px;
+      background: #fff;
+      border: 2px solid #4CAF50;
+      border-radius: 8px;
+      padding: 20px;
+      display: inline-block;
+      min-width: 250px;
+    }
 @media (max-width: 480px),
 (max-width: 768px) {
     .contenedor {

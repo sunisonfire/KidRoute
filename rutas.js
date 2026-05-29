@@ -303,6 +303,11 @@ FormularioRuta.addEventListener("submit", e => {
   if (!soloLetras(ciudadRuta)) {
     alert("La ciudad solo puede contener letras");
     return;
+    // Evitar rutas duplicadas
+}
+if (rutas.some(e => e.nombre.toLowerCase() === nombreRuta.toLowerCase())) {
+  alert("Ya existe una ruta con ese nombre");
+  return;
   }
 
   // Si pasa las validaciones, se guarda
@@ -327,7 +332,7 @@ FormularioEstudiante.addEventListener("submit", e => {
   e.preventDefault();
   const nombreEst = document.getElementById("nombreEstudiante").value.trim();
   const idEst = document.getElementById("IDEstudianteForm").value.trim();
-  const cursoEst = document.getElementById("cursoEstudianteForm").value.trim();
+  const cursoEst = document.getElementById("cursoEstudiante").value.trim();
   const rutaNombre = seleccionarRuta.value;
 
   if (!soloLetras(nombreEst)) {
@@ -349,7 +354,6 @@ FormularioEstudiante.addEventListener("submit", e => {
       curso: cursoEst,
       ruta: rutaNombre
     };
-    /*y si cumple todo*/
     const ruta = rutas.find(r => r.nombre === rutaNombre);
     if (ruta) {
       ruta.estudiantes.push(estudiante);

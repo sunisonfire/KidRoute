@@ -9,24 +9,26 @@
 </head>
 
 <body>
-    <header>
-        <h1>Lista de Estudiantes</h1>
-        <h2>Gestión de Estudiantes</h2>
-    </header>
+<header>
+    <h1>Lista de Estudiantes</h1>
+    <h2>Gestión de Estudiantes</h2>
+    <input type="text" id="busquedaEst" placeholder="Buscar">
+    <br><br>
+</header>
 
-    <!-- Tabla -->
-    <table id="tablaEstudiantes">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th class="hihi">Identificación</th>
-                <th>Curso</th>
-                <th class="hihi">Ruta</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+<!-- Tabla -->
+<table id="tablaEstudiantes">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th class="hihi">Identificación</th>
+            <th>Curso</th>
+            <th class="hihi">Ruta</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
     <!-- MODAL EDITAR ESTUDIANTE -->
     <div id="modal" class="modal">
@@ -42,6 +44,10 @@
             <button id="cerrarModal">Cerrar</button>
         </div>
     </div>
+    <br>
+    
+    <br>
+    <section id="estadisticas"></section>
 
 
     <script src="students.js"></script>

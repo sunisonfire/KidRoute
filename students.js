@@ -7,6 +7,7 @@ let modal = document.getElementById("modal");
 let formEditar = document.getElementById("formEditar");
 let cerrarModal = document.getElementById("cerrarModal");
 
+
 //se muestran los estudianyes que ya estaban guardados en el loocalStorage,
 //  si es que hay alguno guardado, sino no hace nada
 
@@ -31,10 +32,12 @@ function cargarEstudiantes() {
       tbody.appendChild(tr);
     });
   });
+  mostrarEstadisticas();
 }
 
 // Llamar al inicio
 cargarEstudiantes();
+ 
 
 // Abrir modal con datos
 function abrirModal(idEstudiante) {
@@ -73,16 +76,25 @@ formEditar.addEventListener("submit", e => {
   const rutas = JSON.parse(localStorage.getItem("rutas")) || [];
   const { rutaIndex, estIndex } = editIndex;
 
+  // Evitar estudiantes con el mismo ID
+  const nuevoId = editId.value;
+  if (rutas[rutaIndex].estudiantes.some((est, i) => est.id === nuevoId && i !== estIndex)) {
+    alert("Ya existe un estudiante con esa identificación en esta ruta");
+    return;
+  }
+
   rutas[rutaIndex].estudiantes[estIndex] = {
     ...rutas[rutaIndex].estudiantes[estIndex],
     nombre: editNombre.value,
-    id: editId.value,
+    id: nuevoId,
     curso: editCurso.value,
     ruta: editRuta.value || null
   };
 
   localStorage.setItem("rutas", JSON.stringify(rutas));
-  cargarEstudiantes(); // refresca la tabla
+  cargarEstudiantes();
+   
+ // refresca la tabla
   modal.style.display = "none";
 });
 
@@ -94,6 +106,8 @@ function eliminarEstudiante(idEstudiante) {
   });
   localStorage.setItem("rutas", JSON.stringify(rutas));
   cargarEstudiantes();
+   
+
 }
 
 // Cerrar modal
@@ -115,3 +129,71 @@ function cargarRutas() {
 // Inicializar
 cargarRutas();
 cargarEstudiantes();
+ 
+
+
+// 🔎 Buscador que filtra la tabla en vivo
+// 🔎 Buscador que filtra directamente la tabla
+const busquedaEst = document.getElementById("busquedaEst");
+
+busquedaEst.addEventListener("input", () => {
+  const texto = busquedaEst.value.toLowerCase();
+  const filas = document.querySelectorAll("#tablaEstudiantes tbody tr");
+
+  filas.forEach(tr => {
+    const nombre = tr.children[0].textContent.toLowerCase();
+    const id = tr.children[1].textContent.toLowerCase();
+    const curso = tr.children[2].textContent.toLowerCase();
+    const ruta = tr.children[3].textContent.toLowerCase();
+
+    // si el buscador está vacío, mostrar todo
+    if (texto === "") {
+      tr.style.display = "";
+      return;
+    }
+
+    // si alguno de los campos contiene el texto buscado, se muestra
+    if (
+      nombre.includes(texto) ||
+      id.includes(texto) ||
+      curso.includes(texto) ||
+      ruta.includes(texto)
+    ) {
+      tr.style.display = ""; // visible
+    } else {
+      tr.style.display = "none"; // oculto
+    }
+  });
+});
+function mostrarEstadisticas() {
+  const rutas = JSON.parse(localStorage.getItem("rutas")) || [];
+  const contenedor = document.getElementById("estadisticas");
+  contenedor.innerHTML = "";
+
+  let totalGeneral = 0;
+
+  rutas.forEach(ruta => {
+    const total = ruta.estudiantes.length;
+    totalGeneral += total;
+
+    const cursos = {};
+    ruta.estudiantes.forEach(est => {
+      cursos[est.curso] = (cursos[est.curso] || 0) + 1;
+    });
+
+    const div = document.createElement("div");
+    div.classList.add("estadistica");
+    div.innerHTML = `
+      <h3>${ruta.nombre}</h3>
+      <p>Total estudiantes: ${total}</p>
+      <ul>
+        ${Object.entries(cursos).map(([curso, cantidad]) => `<li>${curso}: ${cantidad}</li>`).join("")}
+      </ul>
+    `;
+    contenedor.appendChild(div);
+  });
+  const resumen = document.createElement("div");
+  resumen.classList.add("resumen");
+  resumen.innerHTML = `<h2>Total general de estudiantes: ${totalGeneral}</h2>`;
+  contenedor.appendChild(resumen);
+}
