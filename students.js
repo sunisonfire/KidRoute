@@ -37,7 +37,7 @@ function cargarEstudiantes() {
 
 // Llamar al inicio
 cargarEstudiantes();
- 
+
 
 // Abrir modal con datos
 function abrirModal(idEstudiante) {
@@ -117,7 +117,7 @@ window.addEventListener("click", e => { if (e.target === modal) modal.style.disp
 // Cargar rutas en los selects del otro place
 function cargarRutas() {
   const rutas = JSON.parse(localStorage.getItem("rutas")) || [];
-  editRuta.innerHTML = `<option value="">-- Sin asignar --</option>`;
+  editRuta.innerHTML = `<option value=""> Sin asignar </option>`;
   rutas.forEach(r => {
     const opt = document.createElement("option");
     opt.value = r.nombre;
@@ -160,6 +160,7 @@ busquedaEst.addEventListener("input", () => {
       ruta.includes(texto)
     ) {
       tr.style.display = ""; // visible
+      tr.style.backgroundColor = "#ffff99"; // resaltar
     } else {
       tr.style.display = "none"; // oculto
     }
